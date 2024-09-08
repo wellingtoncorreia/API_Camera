@@ -1,0 +1,17 @@
+<div class="container card mt-3 p-4 col-5">
+    <h1 class="text-center">Tire sua foto agora!</h1>
+    <webcam [height]="400" 
+            [width]="525" 
+            [trigger]="triggerObservable"
+            (imageCapture)="handleImage($event)" 
+            class="d-flex justify-content-center m-4 border border-5 rounded">
+     </webcam>
+     <div class=" d-flex justify-content-center">
+       <button class="btn btn-dark col-2" (click)="triggerSnapshot();"><mat-icon>camera</mat-icon></button>
+     </div>
+    </div>
+  
+    <div class="container card mt-3 p-4 col-5" *ngIf="webcamImage">
+      <h2 class="text-center">Confira sua foto</h2>
+      <img [src]="webcamImage.imageAsDataUrl"/>
+    </div>
